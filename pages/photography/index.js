@@ -5,10 +5,9 @@ import { CircularProgress } from "@heroui/react"
 import AppLayout from '@components/AppLayout'
 
 import axios from 'axios'
-import { Masonry } from 'react-plock'
 
 import { useState, useEffect } from 'react'
-
+import { Masonry } from "masonic";
 
 export default function Photography() {
   const [images, setItems] = useState([])
@@ -17,12 +16,16 @@ export default function Photography() {
   const fetchPhotos = async () => {
     try {
       const response = await axios.get("/api/photos")
-      setItems(response.data.results)
+      setItems(response.data.results.map(x => ({ url: x })))
     } catch(error) {
       console.error('Error fetching data:', error);
     }
     setLoading(false)
   }
+
+  const ImgItem = ({ data: {url} }) => (
+    <img src={url + "=w1024"} style={{ width: '100%' }} />
+  )
 
   useEffect(() => {
     fetchPhotos()
@@ -38,18 +41,7 @@ export default function Photography() {
         {
           !isLoading ?
           <div className={[styles['gallery-container'], 'px-3'].join(' ')}>
-            <Masonry
-              items={images.toReversed()}
-              config={{
-                columns: [2, 3, 4],
-                gap: [16, 16, 16],
-                media: [640, 768, 1024],
-                useBalancedLayout: true,
-              }}
-              render={(item) => (
-                <img src={item + "=w1024"} style={{ width: '100%' }} />
-              )}
-            />
+            <Masonry items={images.toReversed()} render={ImgItem} maxColumnCount={4} columnGutter={4} overscanBy={4} />
           </div> :
           <div className="flex flex-row justify-center items-center h-full">
             <CircularProgress
