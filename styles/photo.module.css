@@ -1,0 +1,7 @@
+.gallery-container {
+  padding-top: 7px;
+}
+
+.gallery-container img {
+  border-radius: 7px;
+}

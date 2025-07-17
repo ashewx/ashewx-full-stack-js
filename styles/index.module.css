@@ -1,0 +1,10 @@
+.parallax-container {
+  background-image: url('/homeBack.jpg');
+  min-height: calc(100vh - 65px - 100px);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}

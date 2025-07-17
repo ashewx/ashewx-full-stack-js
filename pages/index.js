@@ -1,19 +1,99 @@
+import styles from '@styles/index.module.css'
 import Head from 'next/head'
 
-import {Card} from "@heroui/react"
 import AppLayout from '@components/AppLayout'
+
+import { Avatar, Button, Link } from '@heroui/react'
+
+// Icons
+import {
+  BsTwitterX,
+  BsFacebook,
+  BsInstagram,
+  BsGithub,
+  BsLinkedin
+} from "react-icons/bs";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Welcome to my world!</title>
+        <title>Home</title>
       </Head>
 
       <AppLayout>
-        <Card className="w-[240px] h-[240px] bg-linear-to-br from-gray-500 to-white-500">
-          Hello world
-        </Card>
+        <div className={styles['parallax-container']}>
+          <div className="flex flex-col justify-center items-center h-full gap-3 grow">
+            <Avatar
+              className="size-[45vh]"
+              src="/ashewx-profile-pic.jpg"
+            />
+            <div className='text-3xl font-semibold'>Andrew Nguyen</div>
+            <div className='text-xl'>Software Engineer | Arizona State Graduate</div>
+            <div className="flex gap-2">
+              <Button
+                size="lg"
+                radius="full"
+                isIconOnly
+                variant="shadow"
+                className="bg-background"
+                href="https://www.instagram.com/ashewx/"
+                as={Link}
+                target="_blank"
+              >
+                <BsInstagram size="1.5em" />
+              </Button>
+              <Button
+                size="lg"
+                radius="full"
+                isIconOnly
+                variant="shadow"
+                className="bg-background"
+                href="https://x.com/ashewx"
+                as={Link}
+                target="_blank"
+              >
+                <BsTwitterX size="1.5em" />
+              </Button>
+              <Button
+                size="lg"
+                radius="full"
+                isIconOnly
+                variant="shadow"
+                className="bg-background"
+                href="https://www.facebook.com/ashewx"
+                as={Link}
+                target="_blank"
+              >
+                <BsFacebook size="1.5em" />
+              </Button>
+              <Button
+                size="lg"
+                radius="full"
+                isIconOnly
+                variant="shadow"
+                className="bg-background"
+                href="https://github.com/ashewx"
+                as={Link}
+                target="_blank"
+              >
+                <BsGithub size="1.5em" />
+              </Button>
+              <Button
+                size="lg"
+                radius="full"
+                isIconOnly
+                variant="shadow"
+                className="bg-background"
+                href="https://linkedin.com/in/andrew-nguyen-08bbb2129"
+                as={Link}
+                target="_blank"
+              >
+                <BsLinkedin size="1.5em" />
+              </Button>
+            </div>
+          </div>
+        </div>
       </AppLayout>
     </>
   )
