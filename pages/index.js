@@ -85,7 +85,7 @@ export default function Home() {
                 isIconOnly
                 variant="shadow"
                 className="bg-background"
-                href="https://linkedin.com/in/andrew-nguyen-08bbb2129"
+                href="https://www.linkedin.com/in/nguyen-hoang-andrew/"
                 as={Link}
                 target="_blank"
               >
