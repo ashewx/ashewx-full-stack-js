@@ -7,4 +7,18 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
+
+  /* Ken Burns Animation loop */
+  opacity: 1;
+  background-size: 150% 150%;
+  animation: kenny 45s linear;
+  animation-iteration-count: infinite; /* Or a specific number */
+  animation-direction: alternate; /* This creates the boomerang effect */
+  animation-timing-function: ease-in-out; /* Optional, for smoother transitions */
+}
+
+@keyframes kenny {
+  100% {
+    background-size: 100% 100%;
+  }
 }
