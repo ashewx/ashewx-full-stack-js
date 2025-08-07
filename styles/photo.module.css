@@ -5,4 +5,21 @@
 .gallery-container img {
   border-radius: 5px;
   cursor: pointer;
+  display: block; /* Removes extra space below image */
+  width: 100%;
+  height: auto;
+}
+
+.image-container:hover {
+  transform: scale(1.1); /* Scales the image to 110% of its original size */
+  z-index: 2;
+  transition: transform 0.3s ease, z-index 0s, box-shadow 0.3s ease-in-out; /* Z-index changes immediately on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Larger, more prominent shadow on hover */
+}
+
+.image-container {
+  position: relative;
+  z-index: 1; /* A base z-index for normal state */
+  transition: transform 0.3s ease; /* Transition for scale and delayed z-index */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Subtle initial shadow */
 }

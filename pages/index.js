@@ -30,13 +30,13 @@ export default function Home() {
             />
             <div className='text-3xl font-semibold'>Andrew Nguyen</div>
             <div className='text-xl'>Software Engineer | Arizona State Graduate</div>
-            <div className="flex gap-2">
+            <div className={[styles['social-icons'], 'flex', 'gap-2'].join(' ')}>
               <Button
                 size="lg"
                 radius="full"
                 isIconOnly
                 variant="shadow"
-                className="bg-background"
+                className={styles['ig-icon']}
                 href="https://www.instagram.com/ashewx/"
                 as={Link}
                 target="_blank"
@@ -48,7 +48,7 @@ export default function Home() {
                 radius="full"
                 isIconOnly
                 variant="shadow"
-                className="bg-background"
+                className={styles['x-icon']}
                 href="https://x.com/ashewx"
                 as={Link}
                 target="_blank"
@@ -60,7 +60,7 @@ export default function Home() {
                 radius="full"
                 isIconOnly
                 variant="shadow"
-                className="bg-background"
+                className={styles['fb-icon']}
                 href="https://www.facebook.com/ashewx"
                 as={Link}
                 target="_blank"
@@ -72,7 +72,7 @@ export default function Home() {
                 radius="full"
                 isIconOnly
                 variant="shadow"
-                className="bg-background"
+                className={styles['gh-icon']}
                 href="https://github.com/ashewx"
                 as={Link}
                 target="_blank"
@@ -84,7 +84,7 @@ export default function Home() {
                 radius="full"
                 isIconOnly
                 variant="shadow"
-                className="bg-background"
+                className={styles['li-icon']}
                 href="https://www.linkedin.com/in/nguyen-hoang-andrew/"
                 as={Link}
                 target="_blank"

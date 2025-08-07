@@ -6,7 +6,6 @@ import { CircularProgress } from "@heroui/react"
 import AppLayout from '@components/AppLayout'
 
 import Lightbox from "yet-another-react-lightbox"
-import Zoom from "yet-another-react-lightbox/plugins/zoom"
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails"
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen"
 import "yet-another-react-lightbox/styles.css"
@@ -45,13 +44,15 @@ export default function Photography() {
 
   // Image component
   const ImgItem = ({ index, data: {src} }) => (
-    <Image
-      src={src}
-      style={{ width: '100%' }}
-      width={500}
-      height={500}
-      onClick={() => setLightBoxIdx(index)}
-    />
+    <div className={styles['image-container']}>
+      <Image
+        src={src}
+        style={{ width: '100%' }}
+        width={500}
+        height={500}
+        onClick={() => setLightBoxIdx(index)}
+      />
+    </div>
   )
 
   useEffect(() => {
@@ -88,7 +89,7 @@ export default function Photography() {
           open={lightBoxIdx >= 0}
           close={() => setLightBoxIdx(-1)}
           slides={images}
-          plugins={[Fullscreen, Thumbnails, Zoom]}
+          plugins={[Fullscreen, Thumbnails]}
         />
       </AppLayout>
     </>
