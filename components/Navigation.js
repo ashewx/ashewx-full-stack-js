@@ -35,6 +35,7 @@ export default function Navigation() {
   const menuItems = [
     { title: "Blog", href: "/blog" },
     { title: "Photography", href: "/photography" },
+    { title: "Pokémon", href: '/pokemon' },
     { title: "Videos", href: "/videos" },
   ]
   return (
