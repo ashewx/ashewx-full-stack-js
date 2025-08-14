@@ -2,7 +2,7 @@ import axios from "axios"
 
 export default async function handler(req, res) {
   try {
-    const results = await getAlbum("V7kWyhLpYUH1WQko6");
+    const results = await getAlbum(process.env.GOOGLE_PHOTOS_ALBUM_KEY);
     res.status(200).json({ results })
   } catch (e) {
     res.status(500)

@@ -1,5 +1,8 @@
 import '@styles/globals.css'
 
+import { ApolloProvider } from '@apollo/client';
+import client from '@lib/apollo.js';
+
 import {HeroUIProvider} from '@heroui/react'
 
 import {useRouter} from "next/router";
@@ -9,9 +12,11 @@ function Application({ Component, pageProps }) {
   const useHref = (href) => router.basePath + href;
 
   return (
-    <HeroUIProvider navigate={router.push} useHref={useHref}>
-      <Component {...pageProps} />
-    </HeroUIProvider>
+    <ApolloProvider client={client}>
+      <HeroUIProvider navigate={router.push} useHref={useHref}>
+        <Component {...pageProps} />
+      </HeroUIProvider>
+    </ApolloProvider>
   )
 }
 
