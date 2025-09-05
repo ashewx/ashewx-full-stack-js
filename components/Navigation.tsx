@@ -25,9 +25,9 @@ export const WebsiteLogo: React.FC = () => {
       <Image
         src="/android-chrome-512x512.png"
         height={36}
-        viewBox="0 0 32 32"
         width={36}
         as={NextImage}
+        alt={"Website Logo"}
       />
     </NextLink>
   );

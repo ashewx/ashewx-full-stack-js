@@ -232,7 +232,7 @@ const config = {
       layout: {
         disabledOpacity: "0.6"
       }
-    }
+    })
   ]
 };
 

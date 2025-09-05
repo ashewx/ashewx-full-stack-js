@@ -2,6 +2,7 @@ import styles from '@styles/index.module.css'
 import Head from 'next/head'
 import AppLayout from '@components/AppLayout'
 import { Avatar, Button, Link } from '@heroui/react'
+import { JSX } from 'react'
 
 // Icons
 import {

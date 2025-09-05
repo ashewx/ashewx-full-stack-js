@@ -22,6 +22,7 @@ const breakpoints = [3840, 1920, 1080, 640, 384, 256, 128];
 type ImageSrcSet = {
   src: string;
   width: number;
+  height: number;
 };
 
 type GalleryImage = {
@@ -45,6 +46,7 @@ export default function Photography() {
           srcSet: breakpoints.map((xx) => ({
             src: `${x}=w${xx}`,
             width: xx,
+            height: Math.round((xx * 3) / 4) // Assuming a 4:3 aspect ratio
           })),
         }))
       );
