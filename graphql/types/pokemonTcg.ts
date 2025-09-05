@@ -1,6 +1,5 @@
 import { gql } from 'graphql-tag';
 
-// Define the GraphQL schema for Pokémon TCG
 export const typeDefs = gql`
   type PokemonCard {
     id: ID!
@@ -11,10 +10,10 @@ export const typeDefs = gql`
     types: [String]
     evolvesTo: [String]
     rules: [String]
-    attacks: [Attack],
+    attacks: [Attack]
     weaknesses: [Weakness]
     retreatCost: [String]
-    convertedRetreatCost: Int,
+    convertedRetreatCost: Int
     set: Set
     number: String
     artist: String
@@ -30,7 +29,7 @@ export const typeDefs = gql`
     name: String
     series: String
     printedTotal: String
-    total: Int,
+    total: Int
     legalities: Legalities
     ptcgoCode: String
     releaseDate: String
@@ -40,7 +39,7 @@ export const typeDefs = gql`
 
   type Attack {
     name: String
-    cost: [String],
+    cost: [String]
     convertedEnergyCost: Int
     damage: String
     text: String
@@ -78,7 +77,6 @@ export const typeDefs = gql`
     reverseHolofoil: TCGPlayerPricesFields
     firstEditionHolofoil: TCGPlayerPricesFields
     firstEditionNormal: TCGPlayerPricesFields
-
   }
 
   type TCGPlayerPricesFields {
@@ -92,4 +90,4 @@ export const typeDefs = gql`
   type Query {
     searchPokemonCards(q: String, page: Int, pageSize: Int, orderBy: String): [PokemonCard]
   }
-`
+`;

@@ -1,13 +1,26 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { useState, useRef, ChangeEvent } from 'react';
+import { useLazyQuery, gql } from '@apollo/client';
+import { Input } from "@heroui/react";
+import { MdOutlineSearch } from "react-icons/md";
+import AppLayout from '@components/AppLayout';
+import PokeballSpinner from '@components/PokeballSpinner/PokeballSpinner';
 
-import { useState, useRef } from 'react'
-import { useLazyQuery, gql } from '@apollo/client'
-import {
-  Input
-} from "@heroui/react"
-import { MdOutlineSearch } from "react-icons/md"
-import AppLayout from '@components/AppLayout'
-import PokeballSpinner from '@components/PokeballSpinner/PokeballSpinner'
+type PokemonCard = {
+  id: string;
+  name: string;
+  images: {
+    small: string;
+  };
+};
+
+type SearchPokemonCardsData = {
+  searchPokemonCards: PokemonCard[];
+};
+
+type SearchPokemonCardsVars = {
+  q: string;
+};
 
 const SEARCH_POKEMON_CARDS = gql`
   query SearchPokemonCards($q: String) {
@@ -21,12 +34,12 @@ const SEARCH_POKEMON_CARDS = gql`
   }
 `;
 
-export default function Pokemon() {
-  const [search, setSearch] = useState('');
-  const [searchPokemonCards, { data, loading, error }] = useLazyQuery(SEARCH_POKEMON_CARDS);
-  const debounceRef = useRef();
+const Pokemon: React.FC = () => {
+  const [search, setSearch] = useState<string>('');
+  const [searchPokemonCards, { data, loading, error }] = useLazyQuery<SearchPokemonCardsData, SearchPokemonCardsVars>(SEARCH_POKEMON_CARDS);
+  const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearch(value);
 
@@ -50,7 +63,7 @@ export default function Pokemon() {
               mainWrapper: "h-full",
               input: "text-small",
               inputWrapper:
-              "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
             }}
             placeholder="Type to search Pokémon..."
             size="sm"
@@ -76,5 +89,7 @@ export default function Pokemon() {
         </div>
       </AppLayout>
     </>
-  )
-}
+  );
+};
+
+export default Pokemon;

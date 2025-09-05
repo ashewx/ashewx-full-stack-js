@@ -1,8 +1,7 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import AppLayout from '@components/AppLayout';
 
-import AppLayout from '@components/AppLayout'
-
-export default function Videos() {
+const Videos: React.FC = () => {
   return (
     <>
       <Head>
@@ -15,5 +14,7 @@ export default function Videos() {
         </div>
       </AppLayout>
     </>
-  )
-}
+  );
+};
+
+export default Videos;

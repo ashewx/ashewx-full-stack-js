@@ -1,9 +1,10 @@
 import { heroui } from "@heroui/react";
-export default heroui({
-  "themes": {
-    "light": {
-      "colors": {
-        "default": {
+
+const themeConfig = heroui({
+  themes: {
+    light: {
+      colors: {
+        default: {
           "50": "#fafafa",
           "100": "#f2f2f3",
           "200": "#ebebec",
@@ -14,10 +15,10 @@ export default heroui({
           "700": "#8a8a8c",
           "800": "#656567",
           "900": "#404041",
-          "foreground": "#000",
-          "DEFAULT": "#d4d4d8"
+          foreground: "#000",
+          DEFAULT: "#d4d4d8"
         },
-        "primary": {
+        primary: {
           "50": "#dfedfd",
           "100": "#b3d4fa",
           "200": "#86bbf7",
@@ -28,10 +29,10 @@ export default heroui({
           "700": "#00489b",
           "800": "#003571",
           "900": "#002147",
-          "foreground": "#fff",
-          "DEFAULT": "#006fee"
+          foreground: "#fff",
+          DEFAULT: "#006fee"
         },
-        "secondary": {
+        secondary: {
           "50": "#eee4f8",
           "100": "#d7bfef",
           "200": "#bf99e5",
@@ -42,10 +43,10 @@ export default heroui({
           "700": "#4e1a82",
           "800": "#39135f",
           "900": "#240c3c",
-          "foreground": "#fff",
-          "DEFAULT": "#7828c8"
+          foreground: "#fff",
+          DEFAULT: "#7828c8"
         },
-        "success": {
+        success: {
           "50": "#e2f8ec",
           "100": "#b9efd1",
           "200": "#91e5b5",
@@ -56,10 +57,10 @@ export default heroui({
           "700": "#0f8341",
           "800": "#0b5f30",
           "900": "#073c1e",
-          "foreground": "#000",
-          "DEFAULT": "#17c964"
+          foreground: "#000",
+          DEFAULT: "#17c964"
         },
-        "warning": {
+        warning: {
           "50": "#fef4e4",
           "100": "#fce4bd",
           "200": "#fad497",
@@ -70,10 +71,10 @@ export default heroui({
           "700": "#9f6b17",
           "800": "#744e11",
           "900": "#4a320b",
-          "foreground": "#000",
-          "DEFAULT": "#f5a524"
+          foreground: "#000",
+          DEFAULT: "#f5a524"
         },
-        "danger": {
+        danger: {
           "50": "#fee1eb",
           "100": "#fbb8cf",
           "200": "#f98eb3",
@@ -84,34 +85,34 @@ export default heroui({
           "700": "#9e0c3e",
           "800": "#73092e",
           "900": "#49051d",
-          "foreground": "#000",
-          "DEFAULT": "#f31260"
+          foreground: "#000",
+          DEFAULT: "#f31260"
         },
-        "background": "#212121",
-        "foreground": "#000000",
-        "content1": {
-          "DEFAULT": "#ffffff",
-          "foreground": "#000"
+        background: "#212121",
+        foreground: "#000000",
+        content1: {
+          DEFAULT: "#ffffff",
+          foreground: "#000"
         },
-        "content2": {
-          "DEFAULT": "#f4f4f5",
-          "foreground": "#000"
+        content2: {
+          DEFAULT: "#f4f4f5",
+          foreground: "#000"
         },
-        "content3": {
-          "DEFAULT": "#e4e4e7",
-          "foreground": "#000"
+        content3: {
+          DEFAULT: "#e4e4e7",
+          foreground: "#000"
         },
-        "content4": {
-          "DEFAULT": "#d4d4d8",
-          "foreground": "#000"
+        content4: {
+          DEFAULT: "#d4d4d8",
+          foreground: "#000"
         },
-        "focus": "#006FEE",
-        "overlay": "#000000"
+        focus: "#006FEE",
+        overlay: "#000000"
       }
     },
-    "dark": {
-      "colors": {
-        "default": {
+    dark: {
+      colors: {
+        default: {
           "50": "#0d0d10",
           "100": "#1a1a20",
           "200": "#27272f",
@@ -122,10 +123,10 @@ export default heroui({
           "700": "#b3b3b9",
           "800": "#d9d9dc",
           "900": "#ffffff",
-          "foreground": "#fff",
-          "DEFAULT": "#41414f"
+          foreground: "#fff",
+          DEFAULT: "#41414f"
         },
-        "primary": {
+        primary: {
           "50": "#002147",
           "100": "#003571",
           "200": "#00489b",
@@ -136,10 +137,10 @@ export default heroui({
           "700": "#86bbf7",
           "800": "#b3d4fa",
           "900": "#dfedfd",
-          "foreground": "#fff",
-          "DEFAULT": "#006fee"
+          foreground: "#fff",
+          DEFAULT: "#006fee"
         },
-        "secondary": {
+        secondary: {
           "50": "#240c3c",
           "100": "#39135f",
           "200": "#4e1a82",
@@ -150,10 +151,10 @@ export default heroui({
           "700": "#bf99e5",
           "800": "#d7bfef",
           "900": "#eee4f8",
-          "foreground": "#fff",
-          "DEFAULT": "#7828c8"
+          foreground: "#fff",
+          DEFAULT: "#7828c8"
         },
-        "success": {
+        success: {
           "50": "#073c1e",
           "100": "#0b5f30",
           "200": "#0f8341",
@@ -164,10 +165,10 @@ export default heroui({
           "700": "#91e5b5",
           "800": "#b9efd1",
           "900": "#e2f8ec",
-          "foreground": "#000",
-          "DEFAULT": "#17c964"
+          foreground: "#000",
+          DEFAULT: "#17c964"
         },
-        "warning": {
+        warning: {
           "50": "#4a320b",
           "100": "#744e11",
           "200": "#9f6b17",
@@ -178,10 +179,10 @@ export default heroui({
           "700": "#fad497",
           "800": "#fce4bd",
           "900": "#fef4e4",
-          "foreground": "#000",
-          "DEFAULT": "#f5a524"
+          foreground: "#000",
+          DEFAULT: "#f5a524"
         },
-        "danger": {
+        danger: {
           "50": "#49051d",
           "100": "#73092e",
           "200": "#9e0c3e",
@@ -192,33 +193,35 @@ export default heroui({
           "700": "#f98eb3",
           "800": "#fbb8cf",
           "900": "#fee1eb",
-          "foreground": "#000",
-          "DEFAULT": "#f31260"
+          foreground: "#000",
+          DEFAULT: "#f31260"
         },
-        "background": "#212121",
-        "foreground": "#ffffff",
-        "content1": {
-          "DEFAULT": "#18181b",
-          "foreground": "#fff"
+        background: "#212121",
+        foreground: "#ffffff",
+        content1: {
+          DEFAULT: "#18181b",
+          foreground: "#fff"
         },
-        "content2": {
-          "DEFAULT": "#27272a",
-          "foreground": "#fff"
+        content2: {
+          DEFAULT: "#27272a",
+          foreground: "#fff"
         },
-        "content3": {
-          "DEFAULT": "#3f3f46",
-          "foreground": "#fff"
+        content3: {
+          DEFAULT: "#3f3f46",
+          foreground: "#fff"
         },
-        "content4": {
-          "DEFAULT": "#52525b",
-          "foreground": "#fff"
+        content4: {
+          DEFAULT: "#52525b",
+          foreground: "#fff"
         },
-        "focus": "#006FEE",
-        "overlay": "#ffffff"
+        focus: "#006FEE",
+        overlay: "#ffffff"
       }
     }
   },
-  "layout": {
-    "disabledOpacity": "0.6"
+  layout: {
+    disabledOpacity: "0.6"
   }
 });
+
+export default themeConfig;

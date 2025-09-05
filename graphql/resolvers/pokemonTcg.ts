@@ -1,11 +1,18 @@
 import axios from "axios";
+import type { IResolvers } from "@graphql-tools/utils";
 
-export const resolvers = {
+type TCGPlayerPricesParent = {
+  [key: string]: any;
+};
+
+export const resolvers: IResolvers = {
   Query: {
-    // Implement searchPokemonCards as needed
-    searchPokemonCards: async (_, args) => {
+    searchPokemonCards: async (
+      _: unknown,
+      args: { q?: string; page?: number; pageSize?: number; orderBy?: string }
+    ) => {
       const { q, page = 1, pageSize = 50, orderBy } = args;
-      const params = {};
+      const params: Record<string, string | number> = {};
 
       if (q) params.q = q;
       if (page) params.page = page;
@@ -16,22 +23,20 @@ export const resolvers = {
         const response = await axios.get('https://api.pokemontcg.io/v2/cards', {
           params,
           headers: {
-            // Add API key
-            'X-Api-Key': process.env.POKEMON_TCG_API_KEY
+            'X-Api-Key': process.env.POKEMON_TCG_API_KEY as string,
           },
         });
-        return response.data.data; // API returns { data: [...] }
-      } catch (error) {
+        return response.data.data;
+      } catch (error: any) {
         console.error('Error fetching Pokemon cards:', error.message);
         return [];
       }
     },
   },
   TCGPlayerPrices: {
-    // Map GraphQL fields to data keys, including those starting with numbers
-    firstEditionHolofoil: (parent) =>
+    firstEditionHolofoil: (parent: TCGPlayerPricesParent) =>
       parent['1stEditionHolofoil'] || parent['firstEditionHolofoil'],
-    firstEditionNormal: (parent) =>
+    firstEditionNormal: (parent: TCGPlayerPricesParent) =>
       parent['1stEditionNormal'] || parent['firstEditionNormal'],
   },
 };

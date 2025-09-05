@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+/** @type {import('tailwindcss').Config} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -10,8 +10,8 @@ const nextConfig = {
         pathname: "/pw/**",
         search: "",
       },
-    ]
-  }
+    ],
+  },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

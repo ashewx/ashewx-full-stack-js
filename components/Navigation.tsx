@@ -12,14 +12,20 @@ import {
 import React from "react";
 import { usePathname } from "next/navigation";
 import NextImage from "next/image";
-import NextLink from "next/link"
+import NextLink from "next/link";
 
-export const WebsiteLogo = () => {
+type MenuItem = {
+  title: string;
+  href: string;
+};
+
+export const WebsiteLogo: React.FC = () => {
   return (
     <NextLink href="/">
       <Image
         src="/android-chrome-512x512.png"
-        height={36} viewBox="0 0 32 32"
+        height={36}
+        viewBox="0 0 32 32"
         width={36}
         as={NextImage}
       />
@@ -27,19 +33,22 @@ export const WebsiteLogo = () => {
   );
 };
 
-export default function Navigation() {
+const menuItems: MenuItem[] = [
+  { title: "Blog", href: "/blog" },
+  { title: "Photography", href: "/photography" },
+  { title: "Pokémon", href: '/pokemon' },
+  { title: "Videos", href: "/videos" },
+];
+
+const Navigation: React.FC = () => {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
 
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const menuItems = [
-    { title: "Blog", href: "/blog" },
-    { title: "Photography", href: "/photography" },
-    { title: "Pokémon", href: '/pokemon' },
-    { title: "Videos", href: "/videos" },
-  ]
   return (
-    <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}
+    <Navbar
+      isBordered
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
       classNames={{
         item: [
           "flex",
@@ -75,8 +84,8 @@ export default function Navigation() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
         {menuItems.map((item, index) => (
-          <NavbarItem key={`${item.title}-${index}`} isActive={pathname == item.href}>
-              <Link color={pathname == item.href ? "primary":"foreground"} href={item.href}>
+          <NavbarItem key={`${item.title}-${index}`} isActive={pathname === item.href}>
+            <Link color={pathname === item.href ? "primary" : "foreground"} href={item.href}>
               {item.title}
             </Link>
           </NavbarItem>
@@ -85,12 +94,10 @@ export default function Navigation() {
 
       <NavbarMenu className="dark bg-black text-foreground bg-opacity-80">
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item.title}-${index}`} isActive={pathname == item.href}>
+          <NavbarMenuItem key={`${item.title}-${index}`} isActive={pathname === item.href}>
             <Link
               className="w-full"
-              color={
-                pathname == item.href ? "primary" : "foreground"
-              }
+              color={pathname === item.href ? "primary" : "foreground"}
               href={item.href}
               size="lg"
             >
@@ -101,4 +108,6 @@ export default function Navigation() {
       </NavbarMenu>
     </Navbar>
   );
-}
+};
+
+export default Navigation;

@@ -1,8 +1,7 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import AppLayout from '@components/AppLayout';
 
-import AppLayout from '@components/AppLayout'
-
-export default function SearchCard() {
+const SearchCard: React.FC = () => {
   return (
     <>
       <Head>
@@ -15,5 +14,7 @@ export default function SearchCard() {
         </div>
       </AppLayout>
     </>
-  )
-}
+  );
+};
+
+export default SearchCard;
